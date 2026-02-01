@@ -21,11 +21,10 @@ namespace GetMyItchIoRanking
         public static async Task<int> Fetch(RankingCategory category, int searchedID)
         {
             int rankCounter = 0;
-            for (int i = 33; i <= 200; i++)
+            for (int i = 1; i <= 200; i++)
             {
                 Console.Clear();
                 Console.WriteLine($"Fetching page {i} for {CategoryStrings[category]}");
-                Console.WriteLine($"{(200/i)*100}%");
                 string url = $"https://itch.io/{CategoryStrings[category]}/?page={i}&format=json";
                 var response = await _httpClient.GetAsync(url);
                 if (CheckGameID(await response.Content.ReadAsStringAsync(), searchedID, out int rank))
