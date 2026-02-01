@@ -20,12 +20,12 @@ namespace GetMyItchIoRanking
         const int DelayTimer = 2000;
         public static async Task<int> Fetch(RankingCategory category, int searchedID)
         {
-            for (int i = 1; i <= 200; i++)
+            int rankCounter = 0;
+            for (int i = 33; i <= 200; i++)
             {
                 Console.Clear();
                 Console.WriteLine($"Fetching page {i} for {CategoryStrings[category]}");
                 Console.WriteLine($"{(200/i)*100}%");
-                int rankCounter = 0;
                 string url = $"https://itch.io/{CategoryStrings[category]}/?page={i}&format=json";
                 var response = await _httpClient.GetAsync(url);
                 if (CheckGameID(await response.Content.ReadAsStringAsync(), searchedID, out int rank))
@@ -43,11 +43,11 @@ namespace GetMyItchIoRanking
 
         public static async Task<int> Fetch(RankingCategory category, RankingType type, int searchedID)
         {
+            int rankCounter = 0;
             for (int i = 1; i <= 200; i++)
             {
                 Console.Clear();
                 Console.WriteLine($"Fetching page {i} for {CategoryStrings[category]}");
-                int rankCounter = 0;
                 string url = $"https://itch.io/{CategoryStrings[category]}/{TypeStrings[type]}?page={i}&format=json";
                 var response = await _httpClient.GetAsync(url);
                 if (CheckGameID(await response.Content.ReadAsStringAsync(), searchedID, out int rank))
