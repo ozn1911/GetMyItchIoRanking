@@ -14,14 +14,4 @@ namespace GetMyItchIoRanking
         [JsonPropertyName("page")]
         public int Page { get; set; }
     }
-    class Game
-    {
-        public int Id;
-        public string Title;
-        public string Author;
-        public string GameUrl;
-        public string AuthorUrl;
-        public string Genre;
-        public string Description;
-    }
 }

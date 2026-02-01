@@ -1,5 +1,4 @@
-﻿using System.CommandLine;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 namespace GetMyItchIoRanking
 {
